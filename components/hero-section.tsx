@@ -1,10 +1,13 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ConsultationModal } from './consultation-modal';
 
 export function HeroSection() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section className="relative bg-[#2A3B35] text-[#F2F4F3] overflow-hidden min-h-[85vh] flex items-center">
             {/* Background Video */}
@@ -81,10 +84,26 @@ export function HeroSection() {
 
                     {/* CTA Button */}
                     <div className="pt-4 w-full md:w-auto">
-                        <button className="group relative inline-flex items-center justify-center w-full md:w-auto px-6 py-3.5 md:px-8 md:py-4 text-base md:text-lg font-semibold text-[#1A1A1A] transition-all duration-200 bg-[#FF6B6B] rounded-full hover:bg-[#ff8585] hover:shadow-[0_0_20px_rgba(255,107,107,0.4)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF6B6B] focus:ring-offset-[#2A3B35]">
+                        <motion.button
+                            onClick={() => setIsModalOpen(true)}
+                            animate={{
+                                scale: [1, 1.05, 1],
+                                boxShadow: [
+                                    "0 0 0px rgba(255, 107, 107, 0)",
+                                    "0 0 20px rgba(255, 107, 107, 0.4)",
+                                    "0 0 0px rgba(255, 107, 107, 0)"
+                                ]
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            className="group relative inline-flex items-center justify-center w-full md:w-auto px-6 py-3.5 md:px-8 md:py-4 text-base md:text-lg font-semibold text-[#1A1A1A] bg-[#FF6B6B] rounded-full hover:bg-[#ff8585] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF6B6B] focus:ring-offset-[#2A3B35]"
+                        >
                             <span>ഫ്രീ കൺസൾട്ടേഷൻ </span>
                             <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 transition-transform duration-200 group-hover:translate-x-1" />
-                        </button>
+                        </motion.button>
                     </div>
 
                 </div>
@@ -92,6 +111,8 @@ export function HeroSection() {
 
             {/* Decorative Bottom Fade */}
             <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#060507] to-transparent pointer-events-none" />
+
+            <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </section>
     );
 }
