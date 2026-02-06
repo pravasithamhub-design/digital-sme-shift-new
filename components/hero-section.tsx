@@ -44,7 +44,7 @@ export function HeroSection() {
                         >
                             ബിസിനസ്സിനെ
                         </motion.span>
-                        <br className="hidden md:block" />
+                        <br />
 
                         <motion.span
                             animate={{ y: [0, -10, 0], color: ["#FF6B6B", "#FF8585", "#FF6B6B"] }}
@@ -53,6 +53,7 @@ export function HeroSection() {
                         >
                             ഡിജിറ്റൽ
                         </motion.span>
+                        <br className="md:hidden" />
                         <motion.span
                             animate={{ y: [0, -10, 0], color: ["#FF6B6B", "#FF4040", "#FF6B6B"] }}
                             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
