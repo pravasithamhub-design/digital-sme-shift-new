@@ -4,9 +4,22 @@ import { ArrowRight } from 'lucide-react';
 export function HeroSection() {
     return (
         <section className="relative bg-[#2A3B35] text-[#F2F4F3] overflow-hidden">
-            {/* Background Elements (Subtle Gradient/Shapes for depth) */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3B5249] rounded-full blur-[100px] opacity-30 -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+            {/* Background Video */}
+            <div className="absolute inset-0 w-full h-full">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="object-cover w-full h-full opacity-60"
+                >
+                    <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+                </video>
+                {/* Dark Overlay for readability */}
+                <div className="absolute inset-0 bg-[#060507]/60" />
+            </div>
 
+            {/* Content Container */}
             <div className="container mx-auto px-6 py-20 md:py-32 relative z-10 flex flex-col items-center text-center">
 
                 {/* Main Content */}
