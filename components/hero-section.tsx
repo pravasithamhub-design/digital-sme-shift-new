@@ -36,16 +36,41 @@ export function HeroSection() {
                     </div>
 
                     {/* Headline */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
-                    >
-                        ബിസിനസ്സിനെ <br className="hidden md:block" />
-                        <span className="text-[#FF6B6B]">ഡിജിറ്റൽ യുഗത്തിലേക്ക്</span> <br className="hidden md:block" />
-                        കൈപിടിച്ചുയർത്തെണ്ടേ?
-                    </motion.h1>
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+                        <motion.span
+                            animate={{ y: [0, -10, 0], color: ["#F2F4F3", "#B0B8B5", "#F2F4F3"] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0 }}
+                            className="inline-block"
+                        >
+                            ബിസിനസ്സിനെ
+                        </motion.span>
+                        <br className="hidden md:block" />
+
+                        <motion.span
+                            animate={{ y: [0, -10, 0], color: ["#FF6B6B", "#FF8585", "#FF6B6B"] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                            className="inline-block mr-2"
+                        >
+                            ഡിജിറ്റൽ
+                        </motion.span>
+                        <motion.span
+                            animate={{ y: [0, -10, 0], color: ["#FF6B6B", "#FF4040", "#FF6B6B"] }}
+                            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                            className="inline-block"
+                        >
+                            യുഗത്തിലേക്ക്
+                        </motion.span>
+
+                        <br className="hidden md:block" />
+
+                        <motion.span
+                            animate={{ y: [0, -10, 0], color: ["#F2F4F3", "#FF6B6B", "#F2F4F3"] }}
+                            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                            className="inline-block"
+                        >
+                            കൈപിടിച്ചുയർത്തെണ്ടേ?
+                        </motion.span>
+                    </h1>
 
                     {/* Sub-headline */}
                     <p className="text-base sm:text-lg md:text-xl text-[#B0B8B5] max-w-xl md:max-w-2xl mx-auto leading-relaxed px-2">
