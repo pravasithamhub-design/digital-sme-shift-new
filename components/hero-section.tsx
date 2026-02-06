@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function HeroSection() {
     return (
@@ -33,11 +36,16 @@ export function HeroSection() {
                     </div>
 
                     {/* Headline */}
-                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
+                    >
                         ബിസിനസ്സിനെ <br className="hidden md:block" />
                         <span className="text-[#FF6B6B]">ഡിജിറ്റൽ യുഗത്തിലേക്ക്</span> <br className="hidden md:block" />
                         കൈപിടിച്ചുയർത്തെണ്ടേ?
-                    </h1>
+                    </motion.h1>
 
                     {/* Sub-headline */}
                     <p className="text-base sm:text-lg md:text-xl text-[#B0B8B5] max-w-xl md:max-w-2xl mx-auto leading-relaxed px-2">
