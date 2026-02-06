@@ -47,7 +47,7 @@ export function Footer() {
                 {/* Copyright */}
                 <div className="mt-12 pt-8 border-t border-[#1F2E29] text-center">
                     <p className="text-sm text-[#B0B8B5]/60">
-                        &copy; 2026 Pravasitham. All rights reserved.
+                        &copy; 2026 Pravasitham. All rights reserved. <span className="mx-2">|</span> Updated Feb 2026
                     </p>
                 </div>
             </div>
