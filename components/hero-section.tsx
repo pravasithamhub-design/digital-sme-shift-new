@@ -39,7 +39,7 @@ export function HeroSection() {
                     </div>
 
                     {/* Headline */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] md:leading-tight tracking-tight">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] md:leading-tight tracking-tight">
                         <motion.span
                             animate={{ y: [0, -10, 0], color: ["#F2F4F3", "#B0B8B5", "#F2F4F3"] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0 }}
@@ -52,7 +52,7 @@ export function HeroSection() {
                         <motion.span
                             animate={{ y: [0, -10, 0], color: ["#FF6B6B", "#FF8585", "#FF6B6B"] }}
                             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-                            className="inline-block mr-2"
+                            className="inline-block md:mr-2"
                         >
                             ഡിജിറ്റൽ
                         </motion.span>
