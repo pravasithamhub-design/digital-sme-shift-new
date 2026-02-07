@@ -34,19 +34,25 @@ export function ServicesSection() {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className={`relative overflow-hidden bg-white/5 backdrop-blur-md p-8 rounded-[30px] border border-white/10 hover:border-[#FF6B6B]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] group ${service.className}`}
+                            className={`group relative overflow-hidden bg-gradient-to-br from-[#2A3B35] to-[#1F2E29] backdrop-blur-md p-8 rounded-[30px] border border-white/10 hover:border-[#FF6B6B]/50 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(255,107,107,0.3)] ${service.className}`}
                         >
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            {/* Premium Shine Effect Overlay */}
+                            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
 
-                            <div className="mb-6 bg-[#2A3B35]/50 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-white/5">
+                            {/* Step Indicator */}
+                            <div className="absolute top-6 left-6 w-8 h-8 rounded-full bg-[#FF6B6B]/10 border border-[#FF6B6B]/20 flex items-center justify-center text-[#FF6B6B] font-bold text-sm">
+                                {index + 1}
+                            </div>
+
+                            <div className="mb-6 mt-8 bg-[#2A3B35]/50 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-white/5 shadow-inner">
                                 {service.icon}
                             </div>
 
-                            <h3 className="text-xl md:text-2xl font-bold text-[#F2F4F3] mb-4 relative z-10">
+                            <h3 className="text-xl md:text-2xl font-bold text-[#F2F4F3] mb-4 relative z-10 group-hover:text-[#FF6B6B] transition-colors duration-300">
                                 {service.title}
                             </h3>
 
-                            <p className="text-[#B0B8B5] leading-relaxed relative z-10">
+                            <p className="text-[#B0B8B5] leading-relaxed relative z-10 group-hover:text-[#F2F4F3] transition-colors duration-300">
                                 {service.description}
                             </p>
                         </div>
