@@ -39,6 +39,13 @@ export function ServicesSection() {
                             {/* Premium Shine Effect Overlay */}
                             <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
 
+                            {/* Hover Illustration */}
+                            <img
+                                src="/hand-holding-lightbulb-sketch.png"
+                                alt="Innovation"
+                                className="absolute top-[-10px] right-[-10px] w-40 h-40 object-contain opacity-0 scale-50 translate-y-4 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 group-hover:rotate-12 transition-all duration-500 ease-out z-0 pointer-events-none"
+                            />
+
                             {/* Step Indicator */}
                             <div className="absolute top-6 left-6 w-8 h-8 rounded-full bg-[#FF6B6B]/10 border border-[#FF6B6B]/20 flex items-center justify-center text-[#FF6B6B] font-bold text-sm">
                                 {index + 1}
