@@ -7,18 +7,21 @@ export function ServicesSection() {
             title: "പ്രൊഫഷണൽ വെബ്സൈറ്റുകളും ആപ്പുകളും",
             description: "നിങ്ങളുടെ ബിസിനസ്സിന് അനുയോജ്യമായ ആധുനികമായ വെബ്സൈറ്റുകളും മൊബൈൽ ആപ്ലിക്കേഷനുകളും ഞങ്ങൾ നിർമ്മിക്കുന്നു.",
             icon: <Smartphone className="w-8 h-8 text-[#FF6B6B]" />,
+            image: "/banner-1.png",
             className: "md:col-span-1", // Standard card
         },
         {
             title: "ബിസിനസ്സ് ഓട്ടോമേഷൻ",
             description: "ആവർത്തന സ്വഭാവമുള്ള ജോലികൾ ഓട്ടോമേറ്റ് ചെയ്യുന്നതിലൂടെ നിങ്ങളുടെ സമയവും പണവും ലാഭിക്കാം.",
             icon: <Zap className="w-8 h-8 text-[#FF6B6B]" />,
+            image: "/banner-2.png",
             className: "md:col-span-1", // Standard card
         },
         {
             title: "വീഡിയോ മാർക്കറ്റിംഗ്",
             description: "ഉയർന്ന നിലവാരമുള്ള വീഡിയോകളിലൂടെ നിങ്ങളുടെ ബ്രാൻഡിനെ ജനങ്ങളിലേക്ക് എത്തിക്കാം.",
             icon: <Video className="w-8 h-8 text-[#FF6B6B]" />,
+            image: "/banner-3.png",
             className: "md:col-span-1", // Standard card
         }
     ];
@@ -41,8 +44,8 @@ export function ServicesSection() {
 
                             {/* Hover Illustration */}
                             <img
-                                src="/hand-holding-lightbulb-sketch.png"
-                                alt="Innovation"
+                                src={service.image}
+                                alt={service.title}
                                 className="absolute top-[-10px] right-[-10px] w-40 h-40 object-contain opacity-0 scale-50 translate-y-4 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 group-hover:rotate-12 transition-all duration-500 ease-out z-0 pointer-events-none"
                             />
 
