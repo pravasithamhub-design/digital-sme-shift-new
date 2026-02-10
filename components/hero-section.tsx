@@ -8,109 +8,111 @@ import { ConsultationModal } from './consultation-modal';
 export function HeroSection() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const fadeUp = {
+        hidden: { opacity: 0, y: 30 },
+        visible: (custom: number) => ({
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: custom * 0.2 }
+        })
+    };
+
     return (
-        <section className="relative bg-[#2A3B35] text-[#F2F4F3] overflow-hidden min-h-[85vh] flex items-center">
-            {/* Background Video */}
-            <div className="absolute inset-0 w-full h-full">
+        <section className="relative bg-[#060507] text-[#F2F4F3] min-h-[90vh] flex items-center justify-center p-4 md:p-8 overflow-hidden">
+            {/* Background Video - Fixed/Absolute behind everything */}
+            <div className="absolute inset-0 w-full h-full z-0">
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="object-cover w-full h-full opacity-60"
+                    className="object-cover w-full h-full opacity-40 blur-[2px] scale-105"
                 >
                     <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
                 </video>
-                {/* Dark Overlay for readability */}
-                <div className="absolute inset-0 bg-[#060507]/60" />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060507] via-[#060507]/50 to-transparent" />
+                <div className="absolute inset-0 bg-[#060507]/40" />
             </div>
 
-            {/* Content Container */}
-            <div className="container mx-auto px-4 md:px-6 py-20 md:py-32 relative z-10 flex flex-col items-center text-center">
+            {/* Glass Card Container */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                className="glass-card w-full max-w-6xl relative z-10 px-6 py-20 md:py-28 md:px-12 flex flex-col items-center text-center overflow-hidden"
+            >
+                {/* Subtle Glow behind text */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-                {/* Main Content */}
-                <div className="max-w-4xl mx-auto space-y-10 md:space-y-8">
+                {/* Badge */}
+                <motion.div
+                    custom={0}
+                    variants={fadeUp}
+                    initial="hidden"
+                    animate="visible"
+                    className="inline-flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+                >
+                    <span className="text-sm font-medium tracking-wide text-gray-300">
+                        For Forward-Thinking SMEs
+                    </span>
+                </motion.div>
 
-                    {/* Badge / Pill */}
-                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#3B5249] border border-[#4A6359] backdrop-blur-sm mb-6 md:mb-4">
-                        <span className="text-sm font-medium text-[#F2F4F3] opacity-90">
-                            For Forward-Thinking SMEs
+                {/* Headline */}
+                <motion.h1
+                    custom={1}
+                    variants={fadeUp}
+                    initial="hidden"
+                    animate="visible"
+                    className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight mb-8"
+                >
+                    <span className="inline-block bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+                        ബിസിനസ്സിനെ
+                    </span>
+                    <br />
+                    <span className="inline-block text-white">
+                        ഡിജിറ്റൽ
+                    </span>{" "}
+                    <span className="inline-block italic font-light text-[#FF6B6B]">
+                        യുഗത്തിലേക്ക്
+                    </span>
+                    <br />
+                    <span className="inline-block bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+                        കൈപിടിച്ചുയർത്താം
+                    </span>
+                </motion.h1>
+
+                {/* Sub-headline */}
+                <motion.p
+                    custom={2}
+                    variants={fadeUp}
+                    initial="hidden"
+                    animate="visible"
+                    className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed mb-10 font-light"
+                >
+                    മോഡേൺ വെബ്സൈറ്റുകൾ, ആപ്പുകൾ, ബിസിനസ്സ് ഓട്ടോമേഷൻ എന്നിവയിലൂടെ
+                    നിങ്ങളുടെ ബിസിനസ്സിന്റെ വളർച്ച ഉറപ്പാക്കാം.
+                </motion.p>
+
+                {/* CTA Button */}
+                <motion.div
+                    custom={3}
+                    variants={fadeUp}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-[#FF6B6B] rounded-full overflow-hidden transition-all duration-300 hover:bg-[#ff5252] hover:shadow-[0_0_40px_-10px_rgba(255,107,107,0.5)]"
+                    >
+                        <span className="relative z-10 flex items-center">
+                            ഫ്രീ കൺസൾട്ടേഷൻ
+                            <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                         </span>
-                    </div>
+                    </button>
+                </motion.div>
 
-                    {/* Headline */}
-                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] md:leading-tight tracking-tight">
-                        <motion.span
-                            animate={{ y: [0, -10, 0], color: ["#F2F4F3", "#B0B8B5", "#F2F4F3"] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0 }}
-                            className="inline-block"
-                        >
-                            ബിസിനസ്സിനെ
-                        </motion.span>
-                        <br />
-
-                        <motion.span
-                            animate={{ y: [0, -10, 0], color: ["#FF6B6B", "#FF8585", "#FF6B6B"] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-                            className="inline-block md:mr-2"
-                        >
-                            ഡിജിറ്റൽ
-                        </motion.span>
-                        <br className="md:hidden" />
-                        <motion.span
-                            animate={{ y: [0, -10, 0], color: ["#FF6B6B", "#FF4040", "#FF6B6B"] }}
-                            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-                            className="inline-block"
-                        >
-                            യുഗത്തിലേക്ക്
-                        </motion.span>
-
-                        <br className="hidden md:block" />
-
-                        <motion.span
-                            animate={{ y: [0, -10, 0], color: ["#F2F4F3", "#FF6B6B", "#F2F4F3"] }}
-                            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                            className="inline-block"
-                        >
-                            കൈപിടിച്ചുയർത്തെണ്ടേ?
-                        </motion.span>
-                    </h1>
-
-                    {/* Sub-headline */}
-                    <p className="text-lg sm:text-lg md:text-xl text-[#B0B8B5] max-w-xl md:max-w-2xl mx-auto leading-relaxed px-4">
-                        മോഡേൺ വെബ്സൈറ്റുകൾ, ആപ്പുകൾ, ബിസിനസ്സ് ഓട്ടോമേഷൻ, വീഡിയോ മാർക്കറ്റിംഗ് എന്നിവയിലൂടെ
-                        നിങ്ങളുടെ ബിസിനസ്സിന്റെ വളർച്ച നിങ്ങൾക്ക് തന്നെ കാണാൻ...
-                    </p>
-
-                    {/* CTA Button */}
-                    <div className="pt-6 w-full md:w-auto">
-                        <motion.button
-                            onClick={() => setIsModalOpen(true)}
-                            animate={{
-                                scale: [1, 1.05, 1],
-                                boxShadow: [
-                                    "0 0 0px rgba(255, 107, 107, 0)",
-                                    "0 0 20px rgba(255, 107, 107, 0.4)",
-                                    "0 0 0px rgba(255, 107, 107, 0)"
-                                ]
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                            className="group relative inline-flex items-center justify-center w-full md:w-auto px-8 py-4 text-lg font-semibold text-[#1A1A1A] bg-[#FF6B6B] rounded-full hover:bg-[#ff8585] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF6B6B] focus:ring-offset-[#2A3B35]"
-                        >
-                            <span>ഫ്രീ കൺസൾട്ടേഷൻ </span>
-                            <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
-                        </motion.button>
-                    </div>
-
-                </div>
-            </div>
-
-            {/* Decorative Bottom Fade */}
-            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#060507] to-transparent pointer-events-none" />
+            </motion.div>
 
             <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </section>

@@ -51,6 +51,11 @@ export function ServicesSection() {
 
 
 
+                            {/* Step Indicator */}
+                            <div className="absolute top-6 left-6 w-8 h-8 rounded-full bg-[#FF6B6B]/10 border border-[#FF6B6B]/20 flex items-center justify-center text-[#FF6B6B] font-bold text-sm">
+                                {index + 1}
+                            </div>
+
                             <div className="mb-6 mt-8 bg-[#2A3B35]/50 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-white/5 shadow-inner">
                                 {service.icon}
                             </div>
